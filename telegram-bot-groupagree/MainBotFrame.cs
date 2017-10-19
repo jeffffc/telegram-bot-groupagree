@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 namespace telegrambotgroupagree {
 	public class MainBotFrame {
 		public static void Main(string[] args) {
-			var groupagreebot = new GroupAgreeBot(Globals.Apikey);
+			var groupagreebot = new GroupAgreeBot(Globals.Apikey, Globals.Host);
 			try {
 				groupagreebot.Run();
 			} catch (Exception e) {

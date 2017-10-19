@@ -9,29 +9,30 @@ using WJClubBotFrame.Types;
 
 namespace telegrambotgroupagree {
 	public class DBHandler {
-		public DBHandler(string apikey) {
+		public DBHandler(string apikey, string host="localhost") {
 			pollQueue = new List<QueueObject>();
 			pointerQueue = new List<Pointer>();
 			MySqlConnectionStringBuilder conn_string = new MySqlConnectionStringBuilder();
 			this.apikey = apikey;
 			string[] botsplit = apikey.Split(':');
-			conn_string.Server = "localhost";
+			conn_string.Server = host;
 			conn_string.UserID = botsplit[0];
 			conn_string.Password = botsplit[1];
 			conn_string.Database = botsplit[0];
 			conn_string.Port = 3306;
 			conn_string.CharacterSet = "utf8mb4";
 			connection = new MySqlConnection(conn_string.ToString());
-			/*
+			
 			try {
 				Console.WriteLine("Trying to connect to: ..." + conn_string);
 				Console.WriteLine("Connecting to MySQL...");
 				connection.Open();
+                connection.Close();
 			} catch (Exception ex) {
 				Console.WriteLine(ex.ToString());
 				Console.WriteLine ("DB Error");
 			}
-			*/
+			
 		}
 
 		private List<QueueObject> pollQueue;

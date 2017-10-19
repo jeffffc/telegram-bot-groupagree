@@ -4,11 +4,12 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Collections.Generic;
+using telegrambotgroupagree;
 
 namespace WJClubBotFrame {
 	public class Notifications {
-		public static string botkey { get; } = ""; //Your botkey
-		public static string logChatId { get; } = ""; //Your logging chat
+		public static string botkey { get; } = Globals.Apikey; //Your botkey
+		public static string logChatId { get; } = Globals.LogChatId; //Your logging chat
 
 
 		public static void MakeWebRequest(string apikey, string json) {

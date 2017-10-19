@@ -22,9 +22,10 @@ namespace telegrambotgroupagree {
 		public Pointer CurrentPointer { get; internal set; }
 		public Update CurrentUpdate { get; internal set; }
 
-		public GroupAgreeBot(string apikey) {
+		public GroupAgreeBot(string apikey, string host="localhost") {
 			this.apikey = apikey;
 			this.BotInfo = Api.GetMe(apikey);
+            /*
 			Api.DeleteWebhook(apikey);
 			try {
 				using (StreamReader reader = new StreamReader(@"offset.txt")) {
@@ -36,7 +37,8 @@ namespace telegrambotgroupagree {
 				}
 				offset = 0;
 			}
-			dBHandler = new DBHandler(apikey);
+            */
+			dBHandler = new DBHandler(apikey, host);
 			pointerContainer = new PointerContainer(dBHandler);
 			strings = new Strings();
 			pollContainer = new PollContainer(dBHandler, strings);
