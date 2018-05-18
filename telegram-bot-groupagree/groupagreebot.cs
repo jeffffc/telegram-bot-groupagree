@@ -69,7 +69,7 @@ namespace telegrambotgroupagree {
 									Api.SendMessage(apikey, update.Message.Chat.Id, strings.GetString(Strings.stringsList.setupPlease));
 									continue;
 								}
-								if (update.Message.Entities != null && update.Message.Entities[0].Type == EEntityType.bot_command && update.Message.Entities[0].Offset == 0) {
+								if (update.Message.Entities != null && update.Message.Entities.Length > 0 && update.Message.Entities[0].Type == EEntityType.bot_command && update.Message.Entities[0].Offset == 0) {
 									string command = update.Message.Text.Substring(update.Message.Entities[0].Offset + 1, update.Message.Entities[0].Lenght - 1);
 									switch (command) {
 										case "start":
